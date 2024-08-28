@@ -1459,7 +1459,7 @@ public class Utils {
    * @throws SQLException if no timezone is found for this Id
    */
   public static TimeZone getTimeZone(String id) throws SQLException {
-    TimeZone tz = TimeZone.getTimeZone(id);
+    TimeZone tz = TimeZone.getTimeZone(ZoneId.of(id));
 
     // Validate the timezone ID. JDK maps invalid timezones to GMT
     if ("GMT".equals(tz.getID()) && !"GMT".equals(id)) {
